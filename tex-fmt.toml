@@ -1,0 +1,5 @@
+wrap = true        # wrap long lines
+wraplen = 80       # no line longer than 80 characters
+wrapmin = 70       # when wrapping, aim for lines of at least 70 characters
+tabsize = 2        # indent each nesting level by 2 characters,
+tabchar = "space"  # using spaces rather than tabs
