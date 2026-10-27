@@ -12,6 +12,9 @@
   <a href="#building">Build</a>
 </h3>
 
+<p align="center">
+  <a href="https://open.spotify.com/track/1OhrPb6EiqogGjtP1t1uUF"><img src=".github/nuts.png" alt="nuts (feat. Rainy Bear) by Lil Peep and rainy bear on Spotify" width="456"></a>
+</p>
 <br/>
 
 ## What is this?
