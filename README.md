@@ -15,6 +15,7 @@
 <p align="center">
   <a href="https://open.spotify.com/track/1OhrPb6EiqogGjtP1t1uUF"><img src=".github/nuts.png" alt="nuts (feat. Rainy Bear) by Lil Peep and rainy bear on Spotify" width="456"></a>
 </p>
+
 <br/>
 
 ## What is this?
@@ -22,6 +23,10 @@
 *Hypergamy Is Solved* treats "marrying up" as a coupling problem between two status distributions. Whether everyone can marry up becomes a question of stochastic dominance, the shortfall when they can't has a closed form, and the equilibrium pairs people by rank. The tone is deadpan, but every theorem, number and citation is meant to be correct.
 
 Height figures come from NHANES 2015–2018; every source is listed in the paper's references.
+
+<p align="center">
+  <img src=".github/hypergamy.png" alt="Hypergamy meme: six women each draw an arrow to the same man" width="300">
+</p>
 
 ## What's inside
 
