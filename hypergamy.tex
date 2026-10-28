@@ -5,12 +5,16 @@
 \pgfplotsset{compat=1.18}
 \usepackage{tcolorbox}
 \usepackage[colorlinks,allcolors=blue!50!black]{hyperref}
+\usepackage{needspace}
 % LaTeX's defaults; Debian's TeX Live 2023 leaves these at 0 ("u-nique")
 \lefthyphenmin=2 \righthyphenmin=3
 % the US patterns allow "hyperg-amous" and "hypog-amous"
 \hyphenation{hy-per-ga-mous hy-po-ga-mous hy-per-ga-my hy-po-ga-my}
 % stretch a tight paragraph instead of overflowing (two-digit citations)
 \emergencystretch=1em
+% start a section on a new page if less than a quarter page remains
+\let\oldsection\section
+\renewcommand{\section}{\Needspace{0.25\textheight}\oldsection}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -227,25 +231,6 @@ Now require a gap. A union satisfies the \emph{$\delta$-rule} if
 $s(x)\ge s(y)+\delta$. Shifting $\nu_s$ by $\delta$ reduces this to
 Theorem~\ref{thm:deficit}, so $\D(\delta) = \sup_t(G_\W(t) - G_\M(t+\delta))^+$.
 
-\begin{theorem}[Closed-Form Height Deficit]
-  If $\sigma_\M = \sigma_\W = \sigma$, then
-  \begin{equation}
-    \D(\delta) = \left(2\,\Phi\!\left(\frac{\delta-\Delta
-    m}{2\sigma}\right) - 1\right)^{+}.
-  \end{equation}
-  $\D$ vanishes iff $\delta\le\Delta m$, and is concave increasing
-  beyond it with initial slope $(\sigma\sqrt{2\pi})^{-1}$, or $5.4\%$
-  per~\textup{cm} at the pooled $\sigma = 7.35$~\textup{cm}.
-\end{theorem}
-
-\begin{proof}
-  With $z = (t-m_\W)/\sigma$ and $c = (\delta-\Delta m)/\sigma$, the
-  gap is $\Phi(z+c) - \Phi(z)$, the Gaussian mass of an interval of
-  length $c$. For $c > 0$ it is maximized by centering the interval
-  at the mode, $z = -c/2$, giving $2\Phi(c/2) - 1$. Its
-  $\delta$-derivative $\varphi(c/2)/\sigma$ is decreasing in $c$.
-\end{proof}
-
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[font=\small]
@@ -287,6 +272,25 @@ Theorem~\ref{thm:deficit}, so $\D(\delta) = \sup_t(G_\W(t) - G_\M(t+\delta))^+$.
   Essentially zero until about 13 cm, then roughly 5\% per centimeter.}
 \end{figure}
 
+\begin{theorem}[Closed-Form Height Deficit]
+  If $\sigma_\M = \sigma_\W = \sigma$, then
+  \begin{equation}
+    \D(\delta) = \left(2\,\Phi\!\left(\frac{\delta-\Delta
+    m}{2\sigma}\right) - 1\right)^{+}.
+  \end{equation}
+  $\D$ vanishes iff $\delta\le\Delta m$, and is concave increasing
+  beyond it with initial slope $(\sigma\sqrt{2\pi})^{-1}$, or $5.4\%$
+  per~\textup{cm} at the pooled $\sigma = 7.35$~\textup{cm}.
+\end{theorem}
+
+\begin{proof}
+  With $z = (t-m_\W)/\sigma$ and $c = (\delta-\Delta m)/\sigma$, the
+  gap is $\Phi(z+c) - \Phi(z)$, the Gaussian mass of an interval of
+  length $c$. For $c > 0$ it is maximized by centering the interval
+  at the mode, $z = -c/2$, giving $2\Phi(c/2) - 1$. Its
+  $\delta$-derivative $\varphi(c/2)/\sigma$ is decreasing in $c$.
+\end{proof}
+
 \begin{theorem}[The Six-Foot Theorem]\label{thm:sixfoot}
   Suppose a fraction $\alpha$ of $\W$ requires $s(x)\ge\tau$, and
   everyone else imposes any constraint whatsoever. Then at least
@@ -306,7 +310,6 @@ Theorem~\ref{thm:deficit}, so $\D(\delta) = \sup_t(G_\W(t) - G_\M(t+\delta))^+$.
   available and interested.
 \end{remark}
 
-\newpage % start Section 4 on a new page
 \section{The Blackpill Theorems}\label{sec:blackpill}
 
 \begin{lemma}[Conservation of Status]\label{lem:status}
@@ -916,6 +919,7 @@ in which the status functional is itself endogenous.
 contributions that were substantial but unspecified. \emph{Conflict
 of interest:} the author is a participant in the market under study.
 
+\newpage % start the references on a new page
 \begin{thebibliography}{99}
   \bibitem{abdo} J.~Abdo, @thejakeabdo, Instagram,
   \url{https://www.instagram.com/thejakeabdo/}, accessed October 28,
