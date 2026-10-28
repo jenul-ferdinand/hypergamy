@@ -9,6 +9,8 @@
 \lefthyphenmin=2 \righthyphenmin=3
 % the US patterns allow "hyperg-amous" and "hypog-amous"
 \hyphenation{hy-per-ga-mous hy-po-ga-mous hy-per-ga-my hy-po-ga-my}
+% stretch a tight paragraph instead of overflowing (two-digit citations)
+\emergencystretch=1em
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -61,12 +63,15 @@
   the unique Gale--Shapley stable matching is positive assortative,
   and under Becker--Shapley--Shubik transferable utility it is the
   comonotone optimal transport plan, with the Choo--Siow entropic
-  relaxation tending to random matching as taste shocks grow. For
-  equal height variances we derive a closed-form deficit for required
-  height gaps, $\D(\delta) = (2\Phi(\frac{\delta-\Delta m}{2\sigma}) -
-  1)^+$, which vanishes up to $\Delta m \approx 14$ cm and, at the
-  pooled US standard deviation $\sigma\approx7.35$ cm, reaches 0.74 at
-  one foot. With several traits, checklist requirements shrink the
+  relaxation tending to random matching as taste shocks grow. Height is
+  our worked example: for equal variances the deficit for a required
+  height gap has a closed form that vanishes up to the mean difference
+  of about 14 cm, and the height preference online daters reveal is
+  relative, which the market can satisfy. We chose height because it is
+  measurable, not because it matters most, and review what else people
+  weight: kindness and intelligence in stated long-term preferences, the
+  relationship itself in predicting relationship quality, and looks in
+  short-term choices. With several traits, checklist requirements shrink the
   eligible pool multiplicatively when traits are independent,
   trade-offs reduce to a scalar index, and a required rank gap
   $\delta$ leaves exactly $\delta$ of one side unmatched. We model
@@ -181,7 +186,9 @@ $\nu(\Y) = w$ and let $\C = \{(x,y) : s(x)\ge s(y)\}$.
 \section{Application: The Six-Foot Rule}\label{sec:sixfoot}
 
 Height is the cleanest test case: scalar, observable, approximately
-Gaussian within each sex, and the subject of strongly held opinions.
+Gaussian within each sex, and the subject of strongly held opinions. It
+is chosen for convenience, not because it matters most, and
+Section~\ref{sec:matters} reviews what else does.
 Take $s ={}$ height in cm with $\mu_s = N(m_\M,\sigma_\M^2)$ and
 $\nu_s = N(m_\W,\sigma_\W^2)$. We calibrate to US adult means from
 NHANES 2015--2018~\cite{fryar}, $m_\M\approx175.3$ and
@@ -190,7 +197,7 @@ $\sigma_\M = 7.6$ and $\sigma_\W = 7.1$. The report gives percentiles
 rather than standard deviations, and its percentiles imply 7.4--7.5
 and 6.9--7.1.
 
-\begin{proposition}[The $-37.5$ cm Theorem]
+\begin{proposition}[The $-37.5$ cm Theorem]\label{prop:crossing}
   For Gaussian marginals with $\sigma_\M\ne\sigma_\W$, the survival
   functions cross exactly once, at
   \begin{equation}
@@ -300,7 +307,7 @@ Theorem~\ref{thm:deficit}, so $\D(\delta) = \sup_t(G_\W(t) - G_\M(t+\delta))^+$.
 \end{remark}
 
 \newpage % start Section 4 on a new page
-\section{The Blackpill Theorems}
+\section{The Blackpill Theorems}\label{sec:blackpill}
 
 \begin{lemma}[Conservation of Status]\label{lem:status}
   If $s\in L^1(\mu)\cap L^1(\nu)$, then for every
@@ -313,7 +320,7 @@ Theorem~\ref{thm:deficit}, so $\D(\delta) = \sup_t(G_\W(t) - G_\M(t+\delta))^+$.
   Integrate against $\pi$ and use its marginals.
 \end{proof}
 
-\begin{definition}[Strategy]
+\begin{definition}[Strategy]\label{def:strategy}
   A \emph{strategy} is any map
   $\mathfrak{S}:\Pi(\mu,\nu)\to\Pi(\mu,\nu)$: every intervention that
   changes who matches with whom without changing the population. This
@@ -536,11 +543,12 @@ the first case. Preferences and outcomes are different objects.
 \section{Beyond Height: Multidimensional Status}\label{sec:multi}
 
 Height is one coordinate of a longer list. Let each man carry a trait
-vector $x = (x_1,\dots,x_k)$ (height, face, confidence, charisma, and so
-on), each coordinate a within-sex $z$-score, so that $\mu$ is now a
-distribution on $\R^k$. A requirement can combine traits in two ways:
-as a checklist, where every trait must clear its own bar, or as a
-trade-off, where strength in one trait offsets weakness in another.
+vector $x = (x_1,\dots,x_k)$ (height, face, confidence, charisma,
+kindness, income, and so on), each coordinate a within-sex $z$-score, so
+that $\mu$ is now a distribution on $\R^k$. A requirement can combine
+traits in two ways: as a checklist, where every trait must clear its own
+bar, or as a trade-off, where strength in one trait offsets weakness in
+another.
 
 \begin{theorem}[The Checklist Theorem]\label{thm:checklist}
   Suppose a fraction $\alpha$ of $\W$ requires every trait to clear a
@@ -624,6 +632,86 @@ person's quantile within their own side.
   not rare but impossible: by Lemma~\ref{lem:status}, every rank gained
   is a rank lost elsewhere.
 \end{remark}
+
+\section{What Else Matters}\label{sec:matters}
+
+Height is one coordinate of the trait vector of Section~\ref{sec:multi},
+which left the weights $\beta$ unspecified. Here is what the evidence
+says about the others. In 37 samples from 33 countries, both sexes
+ranked kindness and intelligence above physical attractiveness and
+earning capacity; men rated good looks as more important than women did
+in 34 samples, and women rated good financial prospects as more
+important than men did in 36~\cite{buss}. When designing a long-term
+partner on a budget, men treat physical attractiveness as a necessity,
+women status and resources, and both kindness and
+intelligence~\cite{li2002}. For short-term partners, women, like men, put
+physical attractiveness first~\cite{li2006}. A review of the evidence on
+sex drive finds it stronger in men than in women, with no contrary
+findings~\cite{baumeister}.
+
+Stated preferences predict little of what happens next. In speed dating,
+the sex differences in the stated importance of looks and earnings do
+not appear in whom people actually like, and stated ideals do not
+predict it~\cite{eastwick}. Across 43 longitudinal studies of couples,
+features of the relationship itself, led by perceived commitment,
+appreciation, sexual satisfaction, how satisfied the partner seems and
+conflict, explain up to 45\% of the variance in relationship quality,
+individual differences up to 21\%, and what the partner reports adds
+nothing to what the person reports about the relationship~\cite{joel}.
+In the long run the relationship itself matters most, then what each
+person brings to it, such as mood and attachment style.
+
+Money counts for whoever weights it. Among 6,485 users of an online
+dating service in Boston and San Diego, an income of \$150k to \$200k
+rather than \$35k to \$50k raised the chance that a woman contacted a man
+by 8.9 percentage points, and that a man contacted a woman by
+3.9~\cite{hitsch}. The same users show what height preferences look like
+in practice. Women were much less likely to contact men shorter than
+themselves, and a man more than five inches taller, rather than within
+two inches of her height, raised a woman's chance of contacting him by
+7.1 points, about as much as looks in the 81st to 90th percentile rather
+than the bottom decile (7.9); but there was no evidence of a preference
+for absolute height. Height matters, then, as a relative comparison, and
+the market can meet it: even as a requirement, five inches is below the
+mean difference of about 14 cm and leaves about one woman in ten thousand
+unmatched in the calibration of Section~\ref{sec:sixfoot}. It is the
+absolute bar of Theorem~\ref{thm:sixfoot} that excludes, and these users
+show no sign of one.
+
+Short-term play adds game, which is a strategy in the sense of
+Definition~\ref{def:strategy} when it changes who meets whom, and
+maxxing when it raises the index itself, since confidence and charisma
+are on the list. Either way Theorems~\ref{thm:cope} and~\ref{thm:rank}
+bound what it does for the population, and the boxed remark in
+Section~\ref{sec:blackpill} says what it does for an individual. For
+men, the author emphasizes the teachings of Jake Abdo~\cite{abdo}, who
+teaches as optimal play for short-term dating; optimality is not proved here.
+
+Uncertainty is part of the game. Women told that a man's interest in them
+was uncertain were more attracted to him than women told that he liked
+them a lot, and thought about him more~\cite{whitchurch}. Playing hard
+to get raises how much someone wants you but lowers how much they like
+you, and only if they are already committed to pursuing you; otherwise
+it lowers both~\cite{dai}. A partner's attachment security, the opposite
+of emotional unavailability, also predicts attraction~\cite{klohnen}, so
+unavailability trades liking for wanting. Mystery has a shelf life.
+Learning more about a person can lower liking~\cite{norton}, though more
+time in live conversation raises it~\cite{reis}, and among newlyweds it
+was disillusionment, a fading of love and affection over the first two
+years, that marked the couples headed for divorce~\cite{huston}. Mystery
+works like the idealization $\iota$ of Section~\ref{sec:abuse}, applied
+to a current partner, and information removes it. The uncertainty
+finding comes from women only~\cite{whitchurch}; whether it holds for
+men is untested there.
+
+In the notation of Section~\ref{sec:multi}, each side ranks the other by
+its own index, which Theorem~\ref{thm:quantile} allows, with weights that
+change with the horizon: kindness and intelligence in the long run, looks
+in the short run, and money for whoever is looking for it. The
+relationship itself is no one's trait. In the language of
+Section~\ref{sec:taste} it is the idiosyncratic part of the surplus, the
+taste shock, and by Theorem~\ref{thm:taste} the equilibrium tends to
+random matching as it grows relative to the status surplus.
 
 \section{Partner History}\label{sec:history}
 
@@ -801,10 +889,14 @@ Deficit, its equilibrium is the quantile coupling, and its realized
 rate is the measure of the set where one quantile function exceeds
 another. Section~\ref{sec:multi} extends the deficit to several traits,
 where checklist requirements multiply when traits are independent and
-trade-offs reduce to a scalar index, and Section~\ref{sec:history}
-treats partner history as a comparison effect that applies to both
-sexes. Section~\ref{sec:abuse} models an abusive ex as an idealized one,
-whose cost compounds where that of additional partners diminishes. Open
+trade-offs reduce to a scalar index, and Section~\ref{sec:matters}
+reviews the weights: kindness, intelligence and the relationship itself
+in the long run, looks in the short run, money for whoever wants it, and
+height as a relative comparison the market can satisfy.
+Section~\ref{sec:history} treats partner history as a comparison effect
+that applies to both sexes, and Section~\ref{sec:abuse} models an
+abusive ex as an idealized one, whose cost compounds where that of
+additional partners diminishes. Open
 problems include general multidimensional status (Brenier
 maps and upper sets in a partial order), search frictions, and the case
 in which the status functional is itself endogenous.
@@ -814,6 +906,9 @@ contributions that were substantial but unspecified. \emph{Conflict
 of interest:} the author is a participant in the market under study.
 
 \begin{thebibliography}{99}
+  \bibitem{abdo} J.~Abdo, @thejakeabdo, Instagram,
+  \url{https://www.instagram.com/thejakeabdo/}, accessed October 28,
+  2026.
   \bibitem{dsm} American Psychiatric Association, \emph{Diagnostic and
   Statistical Manual of Mental Disorders}, 5th ed., American Psychiatric
   Publishing, 2013.
@@ -824,6 +919,10 @@ of interest:} the author is a participant in the market under study.
   \bibitem{barber} L.~L. Barber and M.~L. Cooper, Rebound sex: Sexual
   motives and behaviors following a relationship breakup, \emph{Archives
   of Sexual Behavior} 43(2), 2014.
+  \bibitem{baumeister} R.~F. Baumeister, K.~R. Catanese, and K.~D. Vohs,
+  Is there a gender difference in strength of sex drive? Theoretical
+  views, conceptual distinctions, and a review of relevant evidence,
+  \emph{Personality and Social Psychology Review} 5(3), 2001.
   \bibitem{becker} G.~S. Becker, A theory of marriage: Part I,
   \emph{Journal of Political Economy} 81(4), 1973.
   \bibitem{borras} M.~L. Borras-Guevara, C.~Batres, and D.~I. Perrett,
@@ -832,8 +931,14 @@ of interest:} the author is a participant in the market under study.
   \bibitem{busby} D.~M. Busby, B.~J. Willoughby, and J.~S. Carroll,
   Sowing wild oats: Valuable experience or a field full of weeds?
   \emph{Personal Relationships} 20(4), 2013.
+  \bibitem{buss} D.~M. Buss, Sex differences in human mate preferences:
+  Evolutionary hypotheses tested in 37 cultures, \emph{Behavioral and
+  Brain Sciences} 12(1), 1989.
   \bibitem{choo} E.~Choo and A.~Siow, Who marries whom and why,
   \emph{Journal of Political Economy} 114(1), 2006.
+  \bibitem{dai} X.~Dai, P.~Dong, and J.~S. Jia, When does playing hard to
+  get increase romantic attraction? \emph{Journal of Experimental
+  Psychology: General} 143(2), 2014.
   \bibitem{day} N.~J.~S. Day, M.~L. Townsend, and B.~F.~S. Grenyer,
   Pathological narcissism: An analysis of interpersonal dysfunction
   within intimate relationships, \emph{Personality and Mental Health}
@@ -841,6 +946,10 @@ of interest:} the author is a participant in the market under study.
   \bibitem{dutton} D.~G. Dutton and S.~Painter, Emotional attachments in
   abusive relationships: A test of traumatic bonding theory,
   \emph{Violence and Victims} 8(2), 1993.
+  \bibitem{eastwick} P.~W. Eastwick and E.~J. Finkel, Sex differences in
+  mate preferences revisited: Do people know what they initially desire
+  in a romantic partner? \emph{Journal of Personality and Social
+  Psychology} 94(2), 2008.
   \bibitem{esteve} A.~Esteve, C.~R. Schwartz, J.~Van Bavel,
   I.~Permanyer, M.~Klesment, and J.~Garc\'{\i}a-Rom\'an, The end of
   hypergamy: Global trends and implications, \emph{Population and
@@ -857,6 +966,35 @@ of interest:} the author is a participant in the market under study.
   \bibitem{galichon} A.~Galichon and B.~Salani\'e, Cupid's invisible
   hand: Social surplus and identification in matching models,
   \emph{Review of Economic Studies} 89(5), 2022.
+  \bibitem{hitsch} G.~J. Hitsch, A.~Horta\c{c}su, and D.~Ariely, What
+  makes you click? Mate preferences in online dating, \emph{Quantitative
+  Marketing and Economics} 8(4), 2010.
+  \bibitem{huston} T.~L. Huston, J.~P. Caughlin, R.~M. Houts, S.~E. Smith,
+  and L.~J. George, The connubial crucible: Newlywed years as predictors
+  of marital delight, distress, and divorce, \emph{Journal of Personality
+  and Social Psychology} 80(2), 2001.
+  \bibitem{joel} S.~Joel, P.~W. Eastwick, C.~J. Allison, et al., Machine
+  learning uncovers the most robust self-report predictors of
+  relationship quality across 43 longitudinal couples studies,
+  \emph{Proceedings of the National Academy of Sciences} 117(32), 2020.
+  \bibitem{klohnen} E.~C. Klohnen and S.~Luo, Interpersonal attraction and
+  personality: What is attractive---self similarity, ideal similarity,
+  complementarity or attachment security? \emph{Journal of Personality and
+  Social Psychology} 85(4), 2003.
+  \bibitem{li2002} N.~P. Li, J.~M. Bailey, D.~T. Kenrick, and
+  J.~A.~W. Linsenmeier, The necessities and luxuries of mate preferences:
+  Testing the tradeoffs, \emph{Journal of Personality and Social
+  Psychology} 82(6), 2002.
+  \bibitem{li2006} N.~P. Li and D.~T. Kenrick, Sex similarities and
+  differences in preferences for short-term mates: What, whether, and
+  why, \emph{Journal of Personality and Social Psychology} 90(3), 2006.
+  \bibitem{norton} M.~I. Norton, J.~H. Frost, and D.~Ariely, Less is more:
+  The lure of ambiguity, or why familiarity breeds contempt,
+  \emph{Journal of Personality and Social Psychology} 92(1), 2007.
+  \bibitem{reis} H.~T. Reis, M.~R. Maniaci, P.~A. Caprariello,
+  P.~W. Eastwick, and E.~J. Finkel, Familiarity does indeed promote
+  attraction in live interaction, \emph{Journal of Personality and Social
+  Psychology} 101(3), 2011.
   \bibitem{shapley} L.~S. Shapley and M.~Shubik, The assignment game
   I: The core, \emph{International Journal of Game Theory} 1(1), 1971.
   \bibitem{smith} J.~Smith and N.~H. Wolfinger, Re-examining the link
@@ -874,6 +1012,9 @@ of interest:} the author is a participant in the market under study.
   Psychology of Groups}, Wiley, 1959.
   \bibitem{villani} C.~Villani, \emph{Optimal Transport: Old and
   New}, Springer, 2009.
+  \bibitem{whitchurch} E.~R. Whitchurch, T.~D. Wilson, and D.~T. Gilbert,
+  ``He loves me, he loves me not \ldots'': Uncertainty can increase
+  romantic attraction, \emph{Psychological Science} 22(2), 2011.
   \bibitem{wolfinger} N.~H. Wolfinger, Counterintuitive trends in the
   link between premarital sex and marital stability, Institute for
   Family Studies, June 6, 2016.
