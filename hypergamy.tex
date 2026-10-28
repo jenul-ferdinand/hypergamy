@@ -70,7 +70,9 @@
   eligible pool multiplicatively when traits are independent,
   trade-offs reduce to a scalar index, and a required rank gap
   $\delta$ leaves exactly $\delta$ of one side unmatched. We model
-  partner history as a comparison effect, which applies to both sexes.
+  partner history as a comparison effect, which applies to both sexes,
+  and show that one ex remembered a standard deviation better than they
+  were costs more than four ordinary ones.
 \end{abstract}
 
 \section{The Marriage Market as a Measure Space}
@@ -650,7 +652,7 @@ capacity is used up by previous partners, has not been established. We
 therefore treat partner history as a hypothesis, and treat it
 symmetrically.
 
-\begin{definition}[Comparison]
+\begin{definition}[Comparison]\label{def:comparison}
   A person whose previous partners had qualities $Q_1,\dots,Q_n$, drawn
   i.i.d.\ from a distribution $F$ with finite mean, values a new partner
   of quality $q$ at $q - \lambda(M_n-q)^+$, where $M_n = \max_{i\le n}
@@ -693,6 +695,104 @@ symmetrically.
   else loses.
 \end{remark}
 
+\section{Abusive Partners}\label{sec:abuse}
+
+Definition~\ref{def:comparison} charges nothing for a bad ex, since only
+an ex who was better than the new partner costs anything. An abusive ex
+can still cost something by being remembered as better than they were.
+``Narcissistic abuse'' is not a clinical diagnosis, and the studies
+below rate a partner's traits through the person they abused. Among 436
+current and former partners and relatives of people high in narcissistic
+traits, Day, Townsend and Grenyer~\cite{day} find abuse alongside mutual
+idealization and devaluation. Among 75 women who had just left abusive
+partners, Dutton and Painter~\cite{dutton} find attachment to the former
+partner predicted by how extreme and intermittent the maltreatment was
+and by the imbalance of power, both at separation and six months later.
+Among 1,294 people recruited through online communities about narcissism
+and abuse, 94\% of them women, Arabi~\cite{arabi} finds that a former
+partner's narcissism predicts symptoms of post-traumatic stress, which
+include intrusive memories, beyond the frequency of the abuse and any
+earlier abuse.
+
+\begin{definition}[Idealization]
+  A previous partner is \emph{idealized by} $\iota\ge0$ if they are
+  remembered at quality $Q_i+\iota$. With one idealized partner the
+  comparison point is $M_n^\iota = \max(Q_1+\iota,Q_2,\dots,Q_n)$, and
+  since the $Q_i$ are i.i.d.\ it does not matter which partner it was.
+  Write $R_n^\iota(q) = \mathbb{E}[(M_n^\iota-q)^+]$.
+\end{definition}
+
+\begin{proposition}[Idealization Compounds]\label{prop:ideal}
+  $R_n^\iota(q)$ is nondecreasing and convex in $\iota$, with $R_n^0 =
+  R_n$ and $R_1^\iota(q) = R_1(q-\iota)$. For standard Gaussian quality
+  and an average new partner ($q=0$), $R_1^\iota = \iota\,\Phi(\iota) +
+  \varphi(\iota)$. At $\iota = 1$ this is $1.08$, which is $2.7$ times
+  $R_1$ and exceeds $R_4 = 1.05$, the regret from four ordinary previous
+  partners; at $\iota = 1.5$ it is $1.53$, almost $R_{10} = 1.54$.
+\end{proposition}
+
+\begin{proof}
+  Write $M_n^\iota = \max(Q_1+\iota, M')$ with $M'$ free of $\iota$. It
+  is convex and nondecreasing in $\iota$, and composing with the convex
+  nondecreasing map $x\mapsto(x-q)^+$ preserves both properties; take
+  expectations, which are finite because $F$ has a finite mean. Also
+  $(Q_1+\iota-q)^+ = (Q_1-(q-\iota))^+$. For $Z\sim N(0,1)$, since
+  $\varphi'(z) = -z\varphi(z)$, $\mathbb{E}[(Z+\iota)^+] =
+  \int_{-\iota}^\infty (z+\iota)\varphi(z)\,dz = \varphi(\iota) +
+  \iota\,\Phi(\iota)$.
+\end{proof}
+
+Partners have diminishing returns (Proposition~\ref{prop:comparison})
+and idealization has increasing ones, so abuse acts through $\iota$ and
+$\lambda$ rather than $n$: one ex is enough. The expected cost of
+comparison is $\lambda R_n^\iota(q)$, so if abuse also raises $\lambda$,
+as the attachment findings suggest, it multiplies all of the above. No
+study measures $\iota$. Nothing in the model refers to sex, although the
+samples in~\cite{dutton} and~\cite{arabi} are entirely or almost entirely
+women.
+
+\begin{remark}[First Partners]
+  Since it does not matter which partner was idealized, what is special
+  about a first partner lies outside the model. While that relationship
+  lasts, $M_0 = -\infty$: there is no one to compare them with. Abuse may
+  also lower the floor. Thibaut and Kelley's comparison
+  level~\cite{thibaut}, the standard a relationship is judged against, is
+  learned from experience, and Definition~\ref{def:comparison} has a
+  ceiling, $M_n$, but no floor. Among 5,681 adolescents aged 12 to 18,
+  dating violence was followed five years later by 1.9 to 3.6 times the
+  adjusted odds of being a victim of partner violence, in both sexes, and
+  psychological violence alone roughly doubled them~\cite{exner}. This
+  fits a lowered floor, but selection is not ruled out.
+\end{remark}
+
+\begin{remark}[Recovery]
+  None of this need be permanent. In~\cite{dutton}, attachment to the
+  former partner fell by about 27\% over the six months, so $\lambda$ is
+  better read as decreasing in the time since the relationship ended. An
+  inability to experience loving feelings is a listed symptom of
+  post-traumatic stress disorder~\cite{dsm}, not the used-up bonding
+  capacity of Section~\ref{sec:history}. After breakups in general, not
+  only abusive ones, sex to cope with distress or to get back at the ex
+  is most frequent soon after the breakup and then declines~\cite{barber}.
+\end{remark}
+
+\begin{remark}[Flipping]
+  A survivor is sometimes said to flip hypergamy and seek a partner of
+  lower status. That is hypergamy for the status functional $-s$, so
+  every theorem above applies with $-s$ in place of $s$, and by
+  Theorem~\ref{thm:deficit} the deficit becomes $\sup_t(\nu(s\le
+  t)-\mu(s\le t))^+$. In the calibration of Section~\ref{sec:sixfoot},
+  ``he must be taller than me'' is feasible for everyone, but if all of
+  $\W$ requires ``he must not be taller than me,'' at least 0.66 of $\W$
+  is unmatched. Every union in which one partner marries down is one in
+  which the other marries up. Whether survivors flip at all is not
+  established. The nearest evidence concerns dominance rather than
+  status, and depends on where the danger comes from: Colombian women who
+  perceive more risk of domestic violence prefer less masculine Colombian
+  faces~\cite{borras}, while American women more afraid of crime prefer
+  more aggressive and formidable mates~\cite{snyder}.
+\end{remark}
+
 \section{Conclusion}
 
 Hypergamy reduces to optimal transport on the real line. Its
@@ -703,7 +803,9 @@ another. Section~\ref{sec:multi} extends the deficit to several traits,
 where checklist requirements multiply when traits are independent and
 trade-offs reduce to a scalar index, and Section~\ref{sec:history}
 treats partner history as a comparison effect that applies to both
-sexes. Open problems include general multidimensional status (Brenier
+sexes. Section~\ref{sec:abuse} models an abusive ex as an idealized one,
+whose cost compounds where that of additional partners diminishes. Open
+problems include general multidimensional status (Brenier
 maps and upper sets in a partial order), search frictions, and the case
 in which the status functional is itself endogenous.
 
@@ -712,17 +814,40 @@ contributions that were substantial but unspecified. \emph{Conflict
 of interest:} the author is a participant in the market under study.
 
 \begin{thebibliography}{99}
+  \bibitem{dsm} American Psychiatric Association, \emph{Diagnostic and
+  Statistical Manual of Mental Disorders}, 5th ed., American Psychiatric
+  Publishing, 2013.
+  \bibitem{arabi} S.~Arabi, Narcissistic and psychopathic traits in
+  romantic partners predict post-traumatic stress disorder symptomology:
+  Evidence for unique impact in a large sample, \emph{Personality and
+  Individual Differences} 201, 2023.
+  \bibitem{barber} L.~L. Barber and M.~L. Cooper, Rebound sex: Sexual
+  motives and behaviors following a relationship breakup, \emph{Archives
+  of Sexual Behavior} 43(2), 2014.
   \bibitem{becker} G.~S. Becker, A theory of marriage: Part I,
   \emph{Journal of Political Economy} 81(4), 1973.
+  \bibitem{borras} M.~L. Borras-Guevara, C.~Batres, and D.~I. Perrett,
+  Domestic violence shapes Colombian women's partner choices,
+  \emph{Behavioral Ecology and Sociobiology} 71(12), 2017.
   \bibitem{busby} D.~M. Busby, B.~J. Willoughby, and J.~S. Carroll,
   Sowing wild oats: Valuable experience or a field full of weeds?
   \emph{Personal Relationships} 20(4), 2013.
   \bibitem{choo} E.~Choo and A.~Siow, Who marries whom and why,
   \emph{Journal of Political Economy} 114(1), 2006.
+  \bibitem{day} N.~J.~S. Day, M.~L. Townsend, and B.~F.~S. Grenyer,
+  Pathological narcissism: An analysis of interpersonal dysfunction
+  within intimate relationships, \emph{Personality and Mental Health}
+  16(3), 2022.
+  \bibitem{dutton} D.~G. Dutton and S.~Painter, Emotional attachments in
+  abusive relationships: A test of traumatic bonding theory,
+  \emph{Violence and Victims} 8(2), 1993.
   \bibitem{esteve} A.~Esteve, C.~R. Schwartz, J.~Van Bavel,
   I.~Permanyer, M.~Klesment, and J.~Garc\'{\i}a-Rom\'an, The end of
   hypergamy: Global trends and implications, \emph{Population and
   Development Review} 42(4), 2016.
+  \bibitem{exner} D.~Exner-Cortens, J.~Eckenrode, and E.~Rothman,
+  Longitudinal associations between teen dating violence victimization
+  and adverse health outcomes, \emph{Pediatrics} 131(1), 2013.
   \bibitem{fryar} C.~D. Fryar, M.~D. Carroll, Q.~Gu, J.~Afful, and
   C.~L. Ogden, Anthropometric reference data for children and adults:
   United States, 2015--2018, \emph{Vital and Health Statistics}
@@ -737,9 +862,16 @@ of interest:} the author is a participant in the market under study.
   \bibitem{smith} J.~Smith and N.~H. Wolfinger, Re-examining the link
   between premarital sex and divorce, \emph{Journal of Family Issues}
   45(3), 2024.
+  \bibitem{snyder} J.~K. Snyder, D.~M.~T. Fessler, L.~Tiokhin,
+  D.~A. Frederick, S.~W. Lee, and C.~D. Navarrete, Trade-offs in a
+  dangerous world: Women's fear of crime predicts preferences for
+  aggressive and formidable mates, \emph{Evolution and Human Behavior}
+  32(2), 2011.
   \bibitem{strassen} V.~Strassen, The existence of probability
   measures with given marginals, \emph{Annals of Mathematical
   Statistics} 36(2), 1965.
+  \bibitem{thibaut} J.~W. Thibaut and H.~H. Kelley, \emph{The Social
+  Psychology of Groups}, Wiley, 1959.
   \bibitem{villani} C.~Villani, \emph{Optimal Transport: Old and
   New}, Springer, 2009.
   \bibitem{wolfinger} N.~H. Wolfinger, Counterintuitive trends in the
