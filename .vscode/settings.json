@@ -7,5 +7,7 @@
     "editor.insertSpaces": true
   },
   "latex-workshop.formatting.latex": "tex-fmt",
-  "latex-workshop.formatting.tex-fmt.args": [] // Drop --nowrap flag
+  "latex-workshop.formatting.tex-fmt.args": [], // Drop --nowrap flag
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.recipes": [{ "name": "latexmk", "tools": ["latexmk"] }]
 }
